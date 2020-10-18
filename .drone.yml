@@ -2,22 +2,21 @@ kind: pipeline
 name: default
 
 steps:
-  - name: test
-    image: golang
-    volumes:
-      - name: deps
-        path: /go
-    commands:
-      - go test
-
-  - name: build
-    image: golang
-    volumes:
-      - name: deps
-        path: /go
-    commands:
-      - go build
-
-volumes:
-  - name: deps
-    temp: {}
+- name: test
+  image: golang
+  commands:
+    - go get
+    - go test
+- name: build
+  image: golang
+  commands:
+    - go get
+    - go build -o output
+    - chmod +x output
+- name: run
+  image: golang
+  commands:
+    - go get
+    - go build - output
+    - chmod +x output
+    - ./ouput

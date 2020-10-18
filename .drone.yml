@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+
+steps:
+- name: fronted
+  image: node
+  commands:
+    - npm cli
+    - npm run testunit

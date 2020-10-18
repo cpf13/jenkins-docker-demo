@@ -3,7 +3,7 @@ name: default
 
 workspace:
   base: /go
-  path: src/github.com/cpf13/hello-world
+  path: src/github.com/cpf13/jenkins-docker-demo
 
 steps:
 - name: test

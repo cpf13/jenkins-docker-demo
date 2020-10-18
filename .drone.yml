@@ -1,9 +1,28 @@
 kind: pipeline
 name: default
 
+workspace:
+  base: /go
+  path: src/github.com/cpf13/hello-world
+
 steps:
-- name: fronted
-  image: node
+- name: test
+  image: golang
   commands:
-    - npm cli
-    - npm run testunit
+    - go get
+    - go test
+
+- name: build
+  image: golang
+  commands:
+    - go get
+    - go build -o output
+    - chmod +x output
+
+- name: run
+  image: golang
+  commands:
+    - go get
+    - go build - output
+    - chmod +x output
+    - ./ouput

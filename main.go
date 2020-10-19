@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-type Server struct {}
+type Server struct{}
 
 func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
@@ -16,5 +16,5 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	s := &Server{}
 	http.Handle("/", s)
-	log.Fatal(http.ListenAndServe("localhost:8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
